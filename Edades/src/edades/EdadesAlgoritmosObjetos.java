@@ -8,9 +8,9 @@ public class EdadesAlgoritmosObjetos {
 
     }
 
-    public float PorcentajeMujeres(int CantMuj, int CantPersona) {
+    public float PorcentajeMujeres(int CantMujeres, int CantPersonas) {
 
         // el (float) es para garantizar que el cálculo sea de este tipo y muestre los decimales
-        return (float) ((CantMuj / CantPersona) * 100);
+        return (float) ((CantMujeres/ CantPersonas));
     }
 }

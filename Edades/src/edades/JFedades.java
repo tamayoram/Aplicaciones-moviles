@@ -47,6 +47,7 @@ public class JFedades extends javax.swing.JFrame {
         lblresmuj18 = new javax.swing.JLabel();
         lblresulporcmuj = new javax.swing.JLabel();
         lblresprommuj = new javax.swing.JLabel();
+        SumEdadMuj = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,6 +99,9 @@ public class JFedades extends javax.swing.JFrame {
 
         lblresprommuj.setText("0");
 
+        SumEdadMuj.setBackground(new java.awt.Color(255, 255, 255));
+        SumEdadMuj.setText("0");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,18 +109,6 @@ public class JFedades extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnprocesar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btntotales))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lblsexo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtsexo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(83, 83, 83))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblestcivil)
@@ -126,7 +118,22 @@ public class JFedades extends javax.swing.JFrame {
                                 .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtestcivil, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnprocesar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btntotales))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(SumEdadMuj)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblsexo)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtsexo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(83, 83, 83))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(214, 214, 214)
                 .addComponent(lblresultado)
@@ -172,7 +179,9 @@ public class JFedades extends javax.swing.JFrame {
                     .addComponent(btntotales))
                 .addGap(27, 27, 27)
                 .addComponent(lblresultado)
-                .addGap(26, 26, 26)
+                .addGap(7, 7, 7)
+                .addComponent(SumEdadMuj)
+                .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbltotalpersona)
                     .addComponent(lblrespersona))
@@ -201,9 +210,9 @@ public class JFedades extends javax.swing.JFrame {
     private void btnprocesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprocesarActionPerformed
         
         int CantPersona=0;int CantMuj=0;int Canthom=0; int CantMujMayor=0;
-        float PromEdadMuj=0;float PorcentMuj=0;float SumaEdadMuj=0;
+        float PromEdadMuj=0;float PorcentMuj=0;
         
-        int Edad=0;int sexo=0; int EstadoCivil=0;
+       int SumaEdadMuj=0;int Edad=0; int sexo=0; int EstadoCivil=0;
         
         //la información se captura en string del cuadro de texto, por lo que se debe convertir a integer
         Edad=Integer.valueOf(txtedad.getText());
@@ -214,7 +223,7 @@ public class JFedades extends javax.swing.JFrame {
         
         if(sexo==1){
             CantMuj=Integer.valueOf(lblresmuj.getText())+1;
-            SumaEdadMuj=SumaEdadMuj+Edad;
+            SumaEdadMuj=Integer.valueOf(SumEdadMuj.getText())+Edad;
                 
                 if(Edad>18){
                     CantMujMayor=Integer.valueOf(lblresmuj18.getText())+1;
@@ -222,15 +231,21 @@ public class JFedades extends javax.swing.JFrame {
         }
         else if (sexo==2)
         {
+        SumaEdadMuj=Integer.valueOf(SumEdadMuj.getText());
+        CantMuj=Integer.valueOf(lblresmuj.getText());
         Canthom=Canthom+1;    
         }
        lblrespersona.setText(String.valueOf(CantPersona));
        lblresmuj.setText(String.valueOf(CantMuj));
        lblresmuj18.setText(String.valueOf(CantMujMayor));
+       SumEdadMuj.setText(String.valueOf(SumaEdadMuj));
     }//GEN-LAST:event_btnprocesarActionPerformed
 
     private void btntotalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntotalesActionPerformed
         
+        EdadesAlgoritmosObjetos oFunciones=new EdadesAlgoritmosObjetos();
+        lblresulporcmuj.setText(String.valueOf(oFunciones.PorcentajeMujeres(Integer.valueOf(lblresmuj.getText()),Integer.valueOf(lblrespersona.getText()))));
+        lblresprommuj.setText(String.valueOf(oFunciones.PromedioEdadMujeres(Integer.valueOf(SumEdadMuj.getText()),Integer.valueOf(lblresmuj.getText()))));
     }//GEN-LAST:event_btntotalesActionPerformed
 
     /**
@@ -269,6 +284,7 @@ public class JFedades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel SumEdadMuj;
     private javax.swing.JButton btnprocesar;
     private javax.swing.JButton btntotales;
     private javax.swing.JLabel lbledad;
