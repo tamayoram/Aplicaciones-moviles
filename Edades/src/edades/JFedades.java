@@ -233,6 +233,7 @@ public class JFedades extends javax.swing.JFrame {
         {
         SumaEdadMuj=Integer.valueOf(SumEdadMuj.getText());
         CantMuj=Integer.valueOf(lblresmuj.getText());
+        CantMujMayor=Integer.valueOf(lblresmuj18.getText());
         Canthom=Canthom+1;    
         }
        lblrespersona.setText(String.valueOf(CantPersona));
