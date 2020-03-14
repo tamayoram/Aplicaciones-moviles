@@ -80,7 +80,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="lblfruta">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cantidad de fruta"/>
+        <Property name="text" type="java.lang.String" value="Cantidad de peras"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtcantidad">
@@ -90,7 +90,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblprecio">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Precio de la fruta"/>
+        <Property name="text" type="java.lang.String" value="Precio de la pera"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtprecio">

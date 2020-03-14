@@ -37,11 +37,11 @@ public class jfFrutas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblfruta.setText("Cantidad de fruta");
+        lblfruta.setText("Cantidad de peras");
 
         txtcantidad.setText("0");
 
-        lblprecio.setText("Precio de la fruta");
+        lblprecio.setText("Precio de la pera");
 
         txtprecio.setText("0");
 
