@@ -1,11 +1,0 @@
-get sick=	infection rate*susceptibles*infecteds	~		~		|infecteds= INTEG (	get sick-recover,		1)	~		~		|infection rate=	0.00218	~		~		|recover=	recovery rate*infecteds	~		~		|recovereds= INTEG (	recover,		0)	~		~		|recovery rate=	0.5	~		~		|susceptibles= INTEG (	-get sick,		762)	~		~		|********************************************************	.Control********************************************************~		Simulation Control Parameters	|FINAL TIME  = 100	~	Month	~	The final time for the simulation.	|INITIAL TIME  = 0	~	Month	~	The initial time for the simulation.	|SAVEPER  =         TIME STEP	~	Month [0,?]	~	The frequency with which output is stored.	|TIME STEP  = 1	~	Month [0,?]	~	The time step for the simulation.	|\\\---/// Sketch information - do not modify anything except namesV300  Do not put anything below this section - it will be ignored*View 1$192-192-192,0,Times New Roman|12||0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|72,72,10010,1,susceptibles,122,198,40,20,3,3,0,0,0,0,0,010,2,infecteds,432,202,40,20,3,3,0,0,0,0,0,010,3,recovereds,743,201,40,20,3,3,0,0,0,0,0,01,4,6,2,4,0,0,22,0,0,0,-1--1--1,,1|(327,197)|1,5,6,1,100,0,0,22,0,0,0,-1--1--1,,1|(206,197)|11,6,300,256,197,6,8,34,3,0,0,1,0,0,010,7,get sick,256,216,25,11,40,3,0,0,-1,0,0,01,8,10,3,4,0,0,22,0,0,0,-1--1--1,,1|(648,196)|1,9,10,2,100,0,0,22,0,0,0,-1--1--1,,1|(526,196)|11,10,204,587,196,6,8,34,3,0,0,1,0,0,010,11,recover,587,215,25,11,40,3,0,0,-1,0,0,010,12,infection rate,217,323,41,11,8,3,0,0,0,0,0,010,13,recovery rate,640,320,42,11,8,3,0,0,0,0,0,01,14,1,7,1,0,0,0,0,64,0,-1--1--1,,1|(213,241)|1,15,12,7,1,0,0,0,0,64,0,-1--1--1,,1|(287,270)|1,16,2,7,1,0,0,0,0,64,0,-1--1--1,,1|(366,229)|1,17,2,11,1,0,0,0,0,64,0,-1--1--1,,1|(540,262)|1,18,13,11,1,0,0,0,0,64,0,-1--1--1,,1|(628,264)|12,19,0,335,44,25,8,8,4,0,0,-1,0,0,0File:  SIR12,20,0,334,82,49,14,8,4,0,0,-1,0,0,0SIR model for spread of influenza///---\\\:L<%^E!@
-9:Current
-23:0
-15:0,0,0,0,0,0
-19:100,0
-27:2,
-34:0,
-5:recovery rate
-24:0
-25:0
-26:0
