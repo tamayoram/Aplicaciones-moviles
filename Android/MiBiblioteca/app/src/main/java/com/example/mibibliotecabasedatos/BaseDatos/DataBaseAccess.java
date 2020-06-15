@@ -12,4 +12,19 @@ public class DataBaseAccess {
 
     protected SQLiteDatabase database; // permite abrir la base de datos
     protected DataBaseHelper dbHelper; // interactua con la anterior para crear las tablas.
+
+    public DataBaseAccess(Context context)
+    {
+        dbHelper=new DataBaseHelper(context); // se llama el objeto que tiene la base de datos y se creó en DataBaseHelper
+    }
+
+    public void open() throws  SQLException //método para abrir la base de datos y captura errores en SQLException
+    {
+        database=dbHelper.getWritableDatabase(); //La instrucción permite que si existe BD la abre sino la crea.
+    }
+
+    public void close()
+    {
+        dbHelper.close(); // cerrar la base de datos
+    }
 }

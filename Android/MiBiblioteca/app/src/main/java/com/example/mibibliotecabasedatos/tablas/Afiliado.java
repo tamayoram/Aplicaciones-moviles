@@ -2,54 +2,67 @@ package com.example.mibibliotecabasedatos.tablas;
 
 public class Afiliado {
 
-    // static implica que el contenido que se defina es fijo
-    public final static string NOMBRE_TABLA="TAFILIADO";
-    public final static string COLUMNA_ID="ID";
-    public final static string COLUMNA_NOMBRE="NOMBRE";
-    public final static string COLUMNA_GENERO="GENERO";
-    public final static string COLUMNA_ESTADO="ESTADO";
-    public final static string COLUMNA_DIRECCION="DIRECCION";
-    public final static string COLUMNA_TELEFONO="TELEFONO";
-    public final static string COLUMNA_CIUDAD="CIUDAD";
+    //static, permite definir el contenido de una variable de forma fija.
+    //A continuación vamos a definir las variables públicas para cada campo
+    //de la tabla TAFILIADO
+    //
+    public final static String NOMBRE_TABLA = "TAFILIADO";
+    public final static String COLUMNA_ID = "ID";
+    public final static String COLUMNA_NOMBRE = "NOMBRE";
+    public final static String COLUMNA_SEXO = "SEXO";
+    public final static String COLUMNA_ESTADO = "ESTADO";
+    public final static String COLUMNA_CIUDAD = "CIUDAD";
+    public final static String COLUMNA_DIRECCION = "DIRECCION";
+    public final static String COLUMNA_TELEFONO = "TELEFONO";
 
-    public final static string CREATE_TABLE="create table "+ NOMBRE_TABLA + "(" + COLUMNA_ID+ " integer primary key autoincrement, "
-            +COLUMNA_NOMBRE+" text not null, "+COLUMNA_GENERO+" text not null, "+COLUMNA_ESTADO+" text not null, "+COLUMNA_DIRECCION+
-            " text not null, "+COLUMNA_TELEFONO+" text not null, "+COLUMNA_CIUDAD+" text not null"+");";
+    //Vamos a crear una variable en la cual llevamos la instrucción SQL
+    //para llamarla con una instrución de SQLITE.
+    //
+    public static final String CREATE_TABLE = "create table "
+            + NOMBRE_TABLA + "(" + COLUMNA_ID
+            + " integer primary key autoincrement, "
+            + COLUMNA_NOMBRE + " text not null, "
+            + COLUMNA_SEXO + " text not null, "
+            + COLUMNA_ESTADO + " text not null, "
+            + COLUMNA_CIUDAD + " text not null, "
+            + COLUMNA_DIRECCION + " text not null, "
+            + COLUMNA_TELEFONO + " text not null"
+            + ");";
 
-    // variables miembro o variables que son propias de la clase (encapsulamiento)
-
-    private string id;
-    private string nombre;
-    private string genero;
+    //Vamos a crear las variables MIEMBRO DE LA CLASE
+    private  String id;
+    private String nombre;
+    private String sexo;
     private boolean estado;
-    private string direccion;
-    private string telefono;
-    private string ciudad;
+    private String ciudad;
+    private String direccion;
+    private String telefono;
 
-// Modificadores de acceso o propiedades que son publicas y permite llevar información a variables miembros que son privadas
-
-    public string getId() {
+    //Vamos a crear los modificadores de ACCESO o PROPIEDADES para poderle llevar un contenido
+    //a cada variable miembro de la clase que es privada.
+    //
+    public String getId() {
         return id;
     }
 
-    public void setId(string id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public string getNombre() {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(string nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public string getGenero() {
-        return genero;
+    public String getSexo() {
+        return sexo;
     }
 
-    public void setGenero(string genero) {
-        this.genero = genero;
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public boolean isEstado() {
@@ -60,27 +73,28 @@ public class Afiliado {
         this.estado = estado;
     }
 
-    public string getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(string direccion) {
-        this.direccion = direccion;
-    }
-
-    public string getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(string telefono) {
-        this.telefono = telefono;
-    }
-
-    public string getCiudad() {
+    public String getCiudad() {
         return ciudad;
     }
 
-    public void setCiudad(string ciudad) {
+    public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
 }
