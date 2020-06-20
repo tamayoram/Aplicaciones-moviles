@@ -1,0 +1,2 @@
+rootProject.name='TallerGeneral20'
+include ':app'
