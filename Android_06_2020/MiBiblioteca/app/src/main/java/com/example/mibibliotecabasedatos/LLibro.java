@@ -42,8 +42,10 @@ public class LLibro extends AppCompatActivity {
         oBtnConsultarLibro.setOnClickListener(consultarLibro); //definición del método para consultar.
 
         Button oBtnEditarLibro=(Button) findViewById(R.id.btnEditarLibro);
-        oBtnConsultarLibro.setOnClickListener(EditarLibro); //definición del método para consultar.
+        oBtnEditarLibro.setOnClickListener(EditarLibro); //definición del método para consultar.
 
+        Button oBtnEliminarLibro=(Button) findViewById(R.id.btnEliminarLibro);
+        oBtnEliminarLibro.setOnClickListener(EliminarLibro); //definición del método para consultar.
 
         Button oBtnLimpiarLibro=(Button) findViewById(R.id.btnLimpiarLibro);
         oBtnLimpiarLibro.setOnClickListener(limpiarLibro);// metodo para limpiar los controles.
@@ -55,11 +57,11 @@ public class LLibro extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Libro oLibroCrear= dbLibro.IngresarLibro(
-                    ((EditText) findViewById(R.id.etFePublica)).getText().toString(),
+                    ((EditText) findViewById(R.id.etTitulo)).getText().toString(),
                     ((EditText) findViewById(R.id.etAutor)).getText().toString(),
-                    Boolean.parseBoolean(((EditText) findViewById(R.id.etEstadoLibro)).getText().toString()),
-                    ((EditText) findViewById(R.id.etTitulo)).getText().toString());
-
+                    ((EditText) findViewById(R.id.etFePublica)).getText().toString(),
+                    Boolean.parseBoolean(((EditText) findViewById(R.id.etEstadoLibro)).getText().toString())
+                    );
         }
     };
 
@@ -70,14 +72,13 @@ public class LLibro extends AppCompatActivity {
         public void onClick(View v) {
             Libro oLibroEditar= dbLibro.actualizarLibro(
                     ((EditText) findViewById(R.id.etIdLibro)).getText().toString(),
-                    ((EditText) findViewById(R.id.etFePublica)).getText().toString(),
+                    ((EditText) findViewById(R.id.etTitulo)).getText().toString(),
                     ((EditText) findViewById(R.id.etAutor)).getText().toString(),
-                    Boolean.parseBoolean(((EditText) findViewById(R.id.etEstadoLibro)).getText().toString()),
-                    ((EditText) findViewById(R.id.etTitulo)).getText().toString());
+                    ((EditText) findViewById(R.id.etFePublica)).getText().toString(),
+                    Boolean.parseBoolean(((EditText) findViewById(R.id.etEstadoLibro)).getText().toString())
+                    );
         }
     };
-
-
 
     //Consultar
     public OnClickListener consultarLibro=new OnClickListener() { // instrucciones para programar el evento click cuando es con base de datos
@@ -95,7 +96,15 @@ public class LLibro extends AppCompatActivity {
         }
     };
 
+    //Eliminar
 
+    public OnClickListener EliminarLibro=new OnClickListener() { // instrucciones para programar el evento click cuando es con base de datos
+        @Override
+        public void onClick(View v) {
+            Libro oLibroEliminar=dbLibro.borrarLibro(
+                    ((EditText) findViewById(R.id.etIdLibro)).getText().toString());
+                   }
+    };
 
     //Limpiar
 
