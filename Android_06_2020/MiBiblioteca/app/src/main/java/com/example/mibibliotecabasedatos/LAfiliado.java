@@ -35,17 +35,15 @@ public class LAfiliado extends AppCompatActivity {
             exception.printStackTrace(); // imprime mensaje de alerta si se presenta un error
         }
 
-
-
-
         Button oBtnCrearAfiliado=(Button) findViewById(R.id.btnCrear);
         Button oBtnConsultarAfiliado=(Button) findViewById(R.id.btnConsultar);
-        //final Button oBtnEditarAfiliado=(Button) findViewById(R.id.btnEditar);
+        Button oBtnEditarAfiliado=(Button) findViewById(R.id.btnEditar);
         //final Button oBtnEliminarAfiliado=(Button) findViewById(R.id.btnEliminar);
         final Button oBtnLimpiarAfiliado=(Button) findViewById(R.id.btnLimpiar);
 
          oBtnCrearAfiliado.setOnClickListener(crearAfiliado);// definición del método para crear.
          oBtnConsultarAfiliado.setOnClickListener(consultarAfiliado); //definición del método para consultar.
+         oBtnEditarAfiliado.setOnClickListener(editarAfiliado); //definición del método para consultar.
          oBtnLimpiarAfiliado.setOnClickListener(limpiarAfiliado);// metodo para limpiar los controles.
 
 
@@ -65,12 +63,13 @@ public class LAfiliado extends AppCompatActivity {
 
         }
     };
+
     //Consultar
     public OnClickListener consultarAfiliado=new OnClickListener() { // instrucciones para programar el evento click cuando es con base de datos
         @Override
         public void onClick(View v) {
             Afiliado oAfiliadoConsultar=dbAfiliado.getAfiliado(
-                    ((EditText) findViewById(R.id.etId)).getText().toString());
+                    ((EditText) findViewById(R.id.etIdAfiliado)).getText().toString());
 
             // Se muestran los datos en cada uno de los campos
             ((EditText) findViewById(R.id.etNombre)).setText(oAfiliadoConsultar.getNombre());
@@ -79,6 +78,22 @@ public class LAfiliado extends AppCompatActivity {
             ((EditText) findViewById(R.id.etCiudad)).setText(oAfiliadoConsultar.getCiudad());
             ((EditText) findViewById(R.id.etDireccion)).setText(oAfiliadoConsultar.getDireccion());
             ((EditText) findViewById(R.id.etTelefono)).setText(oAfiliadoConsultar.getTelefono());
+        }
+    };
+
+    //editar
+
+    public OnClickListener editarAfiliado=new OnClickListener() { // instrucciones para programar el evento click cuando es con base de datos
+        @Override
+        public void onClick(View v) {
+            Afiliado oAfiliadoEditar= dbAfiliado.actualizarAfiliado(
+                    ((EditText) findViewById(R.id.etIdAfiliado)).getText().toString(),
+                    ((EditText) findViewById(R.id.etNombre)).getText().toString(),
+                    ((EditText) findViewById(R.id.etGenero)).getText().toString(),
+                    Boolean.parseBoolean(((EditText) findViewById(R.id.etEstado)).getText().toString()),
+                    ((EditText) findViewById(R.id.etCiudad)).getText().toString(),
+                    ((EditText) findViewById(R.id.etDireccion)).getText().toString(),
+                    ((EditText) findViewById(R.id.etTelefono)).getText().toString());
         }
     };
 

@@ -1,8 +1,5 @@
 package com.example.mibibliotecabasedatos.BaseDatos;
 
-import java.util.ArrayList; // librería para manejar vectores
-import java.util.List; // recuperar datos de la BD
-
 import android.content.ContentValues; //librería para enviar datos a la BD
 import android.content.Context; //librería para manejar la base de datos
 import android.database.Cursor;
@@ -43,7 +40,7 @@ public class DataBaseAfiliado extends DataBaseAccess {
     }
 
     // actualizar (update)
-    public void actualizarAfiliado(String id,String nombre, String sexo, boolean estado,String ciudad, String direccion, String telefono)
+    public Afiliado actualizarAfiliado(String id, String nombre, String sexo, boolean estado, String ciudad, String direccion, String telefono)
     {
         ContentValues values=new ContentValues();
         values.put(Afiliado.COLUMNA_NOMBRE,nombre); // esta instrucciones son para insertar los valores en la base de datos
@@ -55,6 +52,7 @@ public class DataBaseAfiliado extends DataBaseAccess {
 
 
         database.update(Afiliado.NOMBRE_TABLA,values,Afiliado.COLUMNA_ID +" = "+ id,null);
+        return null;
     }
 
     //consultar o leer (read)
