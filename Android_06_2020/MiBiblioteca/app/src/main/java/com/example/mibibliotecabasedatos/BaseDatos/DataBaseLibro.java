@@ -41,7 +41,7 @@ public class DataBaseLibro extends DataBaseAccess
     }
 
     // actualizar (update)
-    public void actualizarLibro(String id,String fepublicacion, String autor, boolean estado,String titulo)
+    public Libro actualizarLibro(String id,String fepublicacion, String autor, boolean estado,String titulo)
     {
         ContentValues values=new ContentValues();
         values.put(Libro.COLUMNA_FEPUBLICACION,fepublicacion); // esta instrucciones son para insertar los valores en la base de datos
@@ -49,7 +49,9 @@ public class DataBaseLibro extends DataBaseAccess
         values.put(Libro.COLUMNA_ESTADO,estado);
         values.put(Libro.COLUMNA_TITULO,titulo);
 
-        database.update(Libro.NOMBRE_TABLA,values,Libro.COLUMNA_ID+"="+id,null);
+        database.update(Libro.NOMBRE_TABLA,values,Libro.COLUMNA_ID +" = "+ id,null);
+
+        return  null;
     }
 
     //consultar o leer (read)
@@ -57,7 +59,7 @@ public class DataBaseLibro extends DataBaseAccess
     public Libro getLibro(String id)
     {
         Libro libro= null; //inicialización del objeto libro
-        Cursor cursor= database.query(Libro.NOMBRE_TABLA, allcolumns,Libro.COLUMNA_ID+"="+id,null,null,null,null); // un cursor es una tabla
+        Cursor cursor= database.query(Libro.NOMBRE_TABLA, allcolumns,Libro.COLUMNA_ID + " = " + id,null,null,null,null); // un cursor es una tabla
         // se define tabla, todas las columnas, se filtra por ID, los null es para definir los argumentos que faltan
 
         cursor.close(); // se cierra la consulta

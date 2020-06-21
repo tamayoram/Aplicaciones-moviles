@@ -38,17 +38,75 @@ public class LLibro extends AppCompatActivity {
         Button oBtnCrearLibro=(Button) findViewById(R.id.btnCrearLibro);
         oBtnCrearLibro.setOnClickListener(crearLibro);// definición del método para crear.
 
+        Button oBtnConsultarLibro=(Button) findViewById(R.id.btnConsultarLibro);
+        oBtnConsultarLibro.setOnClickListener(consultarLibro); //definición del método para consultar.
+
+        Button oBtnEditarLibro=(Button) findViewById(R.id.btnEditarLibro);
+        oBtnConsultarLibro.setOnClickListener(EditarLibro); //definición del método para consultar.
+
+
+        Button oBtnLimpiarLibro=(Button) findViewById(R.id.btnLimpiarLibro);
+        oBtnLimpiarLibro.setOnClickListener(limpiarLibro);// metodo para limpiar los controles.
+
     }
 
     //Crear
     public OnClickListener crearLibro =new OnClickListener() { // instrucciones para programar el evento click cuando es con base de datos
         @Override
         public void onClick(View v) {
-            Libro oAfiliadoLibro= dbLibro.IngresarLibro(
+            Libro oLibroCrear= dbLibro.IngresarLibro(
                     ((EditText) findViewById(R.id.etFePublica)).getText().toString(),
                     ((EditText) findViewById(R.id.etAutor)).getText().toString(),
                     Boolean.parseBoolean(((EditText) findViewById(R.id.etEstadoLibro)).getText().toString()),
                     ((EditText) findViewById(R.id.etTitulo)).getText().toString());
+
+        }
+    };
+
+    //Editar
+
+    public OnClickListener EditarLibro =new OnClickListener() { // instrucciones para programar el evento click cuando es con base de datos
+        @Override
+        public void onClick(View v) {
+            Libro oLibroEditar= dbLibro.actualizarLibro(
+                    ((EditText) findViewById(R.id.etIdLibro)).getText().toString(),
+                    ((EditText) findViewById(R.id.etFePublica)).getText().toString(),
+                    ((EditText) findViewById(R.id.etAutor)).getText().toString(),
+                    Boolean.parseBoolean(((EditText) findViewById(R.id.etEstadoLibro)).getText().toString()),
+                    ((EditText) findViewById(R.id.etTitulo)).getText().toString());
+        }
+    };
+
+
+
+    //Consultar
+    public OnClickListener consultarLibro=new OnClickListener() { // instrucciones para programar el evento click cuando es con base de datos
+        @Override
+        public void onClick(View v) {
+            Libro oLibroConsultar=dbLibro.getLibro(
+                    ((EditText) findViewById(R.id.etIdLibro)).getText().toString());
+
+            // Se muestran los datos en cada uno de los campos
+            ((EditText) findViewById(R.id.etTitulo)).setText(oLibroConsultar.getTitulo());
+            ((EditText) findViewById(R.id.etAutor)).setText(oLibroConsultar.getAutor());
+            ((EditText) findViewById(R.id.etEstadoLibro)).setText(String.valueOf(oLibroConsultar.isEstado())); // el estado como llega booleano se debe convertir con string.valueof
+            ((EditText) findViewById(R.id.etFePublica)).setText(oLibroConsultar.getFepublicacion());
+
+        }
+    };
+
+
+
+    //Limpiar
+
+    public OnClickListener limpiarLibro=new OnClickListener() { // instrucciones para programar el evento click cuando es con base de datos
+        @Override
+        public void onClick(View v) {
+
+            ((EditText) findViewById(R.id.etTitulo)).setText("");
+            ((EditText) findViewById(R.id.etAutor)).setText("");
+            ((EditText) findViewById(R.id.etFePublica)).setText("");
+            ((EditText) findViewById(R.id.etEstadoLibro)).setText("");
 
         }
     };

@@ -38,15 +38,14 @@ public class LAfiliado extends AppCompatActivity {
         Button oBtnCrearAfiliado=(Button) findViewById(R.id.btnCrear);
         Button oBtnConsultarAfiliado=(Button) findViewById(R.id.btnConsultar);
         Button oBtnEditarAfiliado=(Button) findViewById(R.id.btnEditar);
-        //final Button oBtnEliminarAfiliado=(Button) findViewById(R.id.btnEliminar);
-        final Button oBtnLimpiarAfiliado=(Button) findViewById(R.id.btnLimpiar);
+        Button oBtnEliminarAfiliado=(Button) findViewById(R.id.btnEliminar);
+        Button oBtnLimpiarAfiliado=(Button) findViewById(R.id.btnLimpiar);
 
          oBtnCrearAfiliado.setOnClickListener(crearAfiliado);// definición del método para crear.
          oBtnConsultarAfiliado.setOnClickListener(consultarAfiliado); //definición del método para consultar.
          oBtnEditarAfiliado.setOnClickListener(editarAfiliado); //definición del método para consultar.
          oBtnLimpiarAfiliado.setOnClickListener(limpiarAfiliado);// metodo para limpiar los controles.
-
-
+         oBtnEliminarAfiliado.setOnClickListener(eliminarAfiliado); // método para eliminar registros
 
     }
     //Crear
@@ -96,6 +95,17 @@ public class LAfiliado extends AppCompatActivity {
                     ((EditText) findViewById(R.id.etTelefono)).getText().toString());
         }
     };
+
+    // Eliminar
+
+    public OnClickListener eliminarAfiliado=new OnClickListener() { // instrucciones para programar el evento click cuando es con base de datos
+        @Override
+        public void onClick(View v) {
+            Afiliado oAfiliadoEliminar=dbAfiliado.borrarAfiliado(
+                    ((EditText) findViewById(R.id.etIdAfiliado)).getText().toString());
+        }
+    };
+
 
     //Limpiar
 
